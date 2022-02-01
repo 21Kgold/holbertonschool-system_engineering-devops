@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -name . -prune | find -name ".*" -type d | wc -l
+find -name ".*" -type d | find . -name /home/holberton-system_engineering-devops/0x02-shell_redirections -prune | wc -l
