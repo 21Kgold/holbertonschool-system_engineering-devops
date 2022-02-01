@@ -1,2 +1,2 @@
 #!/bin/bash
-find -name ".*" -type d | wc -w
+find -name ".*" -type d | find . -path . -prune -o -print | wc -l
