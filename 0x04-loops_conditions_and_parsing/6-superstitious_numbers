@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Bash script that displays "Best School" 10 times using while with exeption
+# Bash script that displays numbers from 1 to 20 and after 4, 9 and 17 an script
 j=1
 while [ $j -le 20 ]
 do
