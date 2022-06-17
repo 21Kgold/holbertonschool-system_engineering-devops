@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Bash script that displays "Best School" 10 times using while with exeption
+j=1
+while [ $j -le 20 ]
+do
+	echo "$j"
+	if [[ $j -eq 4 ]]
+	then
+		echo "bad luck from China"
+	elif [[ $j -eq 9 ]]
+	then
+		echo "bad luck from Japan"
+	elif [[ $j -eq 17 ]]
+	then
+		echo "bad luck from Italy"
+	fi	
+	j=$(( j + 1 )) # increase number by 1 
+done
