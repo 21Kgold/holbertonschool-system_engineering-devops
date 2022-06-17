@@ -3,16 +3,21 @@
 j=1
 while [ $j -le 20 ]
 do
-	echo "$j"
-	if [[ $j -eq 4 ]]
-	then
-		echo "bad luck from China"
-	elif [[ $j -eq 9 ]]
-	then
-		echo "bad luck from Japan"
-	elif [[ $j -eq 17 ]]
-	then
-		echo "bad luck from Italy"
-	fi	
-	j=$(( j + 1 )) # increase number by 1 
+	case $j in
+		4)
+			echo $j
+			echo "bad luck from China"
+			;;
+		9)
+			echo $j
+			echo "bad luck from Japan"
+			;;
+		17)
+			echo $j
+			echo "bad luck from Italy"
+			;;
+		*)
+			echo $j
+	esac
+	j=$(( j + 1 )) # increase number by 1
 done
