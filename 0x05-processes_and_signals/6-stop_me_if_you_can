@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-# Displays the PID, and process name, whose name contain "bash"
-pkill "$(pgrep -f 4-to_infinity_and_beyond)"
+# stops 4-to_infinity_and_beyond process using kill
+pkill -f 4-to_infinity_and_beyond
+# -f option ignores if there is anything before or after the name
