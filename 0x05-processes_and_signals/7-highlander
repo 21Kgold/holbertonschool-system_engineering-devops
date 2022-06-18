@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Infinity loop printing "To infinity ..." with two seconds pausing in between
+# Infinity loop that prints "I am invicible" when receiving a SIGTERM signal
 j=1
 while [ $j -le 2 ]
 do
