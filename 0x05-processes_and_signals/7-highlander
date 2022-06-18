@@ -3,7 +3,7 @@
 j=1
 while [ $j -le 2 ]
 do
-	trap "I am invincible!!!" SIGTERM
+	trap 'echo I am invincible!!!' SIGTERM
 	echo "To infinity and beyond"
 	sleep 2
 done
