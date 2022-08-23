@@ -1,0 +1,4 @@
+# Add Host 54.84.157.91 setting at the client file etc/ssh/ssh_config so the server check the client's file ~/.ssh/school for ssh key automatically and doesn't ask for a password
+Host 54.84.157.91
+PasswordAuthentication no
+IdentityFile ~/.ssh/school
