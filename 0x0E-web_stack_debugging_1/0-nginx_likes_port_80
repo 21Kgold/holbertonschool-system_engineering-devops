@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Bash script that use sed is a stream editor, to replace the actual port number for 80 port number in the port configuration file
+
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+service nginx restart
