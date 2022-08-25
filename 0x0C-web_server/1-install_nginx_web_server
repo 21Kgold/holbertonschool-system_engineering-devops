@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Bash script that will be run on the server to install nginx on that server. Nginx should be listening on port 80 (default port). To return a page that contains the string Hello World when querying Nginx at its root / with a GET request (requesting a page) using curl, the script must create a file where the Default page is placed in index.nginx-debian.html (Ubuntu 16)
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+service nginx restart
