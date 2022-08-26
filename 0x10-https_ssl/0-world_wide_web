@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Bash Script that retrives IP and QUERY_TYPE from a domain or subdomain
+
+func() {
+	if [ "$#" -eq 1 ]
+	then
+		DOMAIN=$(echo "$1")
+		for SUB_DOMAIN in www lb-01 web-01 web-02
+		do  
+			URL=$(echo "$SUB_DOMAIN.$DOMAIN")
+			IP=$(dig $URL +short)
+			QUERY_TYPE=$(dig $URL | grep -A1 'ANSWER SECTION:' | sed -n '1!p' | awk -F' ' '{print $4}')
+			echo "The subdomain $SUB_DOMAIN is a $QUERY_TYPE record and points to $IP"
+		done
+	else 
+		DOMAIN=$(echo "$1")
+		SUB_DOMAIN=$(echo "$2")
+		URL=$(echo "$SUB_DOMAIN.$DOMAIN")
+		IP=$(dig $URL +short)
+		QUERY_TYPE=$(dig $URL | grep -A1 'ANSWER SECTION:' | sed -n '1!p' | awk -F' ' '{print $4}')
+		echo "The subdomain $SUB_DOMAIN is a $QUERY_TYPE record and points to $IP"
+	fi
+}
+
+func $1 $2
