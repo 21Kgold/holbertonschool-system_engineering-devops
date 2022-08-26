@@ -8,7 +8,7 @@ func() {
 		for SUB_DOMAIN in www lb-01 web-01 web-02
 		do  
 			URL="$SUB_DOMAIN.$DOMAIN"
-			IP=$(dig "$URL" +short)
+			IP=$(dig "$URL" | grep -A1 'ANSWER SECTION:' | sed -n '1!p' | awk -F' ' '{print $5}')
 			QUERY_TYPE=$(dig "$URL" | grep -A1 'ANSWER SECTION:' | sed -n '1!p' | awk -F' ' '{print $4}')
 			echo "The subdomain $SUB_DOMAIN is a $QUERY_TYPE record and points to $IP"
 		done
@@ -16,7 +16,7 @@ func() {
 		DOMAIN="$1"
 		SUB_DOMAIN="$2"
 		URL="$SUB_DOMAIN.$DOMAIN"
-		IP=$(dig "$URL" +short)
+		IP=$(dig "$URL" | grep -A1 'ANSWER SECTION:' | sed -n '1!p' | awk -F' ' '{print $5}')
 		QUERY_TYPE=$(dig "$URL" | grep -A1 'ANSWER SECTION:' | sed -n '1!p' | awk -F' ' '{print $4}')
 		echo "The subdomain $SUB_DOMAIN is a $QUERY_TYPE record and points to $IP"
 	fi
