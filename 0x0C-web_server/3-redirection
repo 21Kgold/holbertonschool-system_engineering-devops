@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Bash script  to automatically configure your Nginx server (when you install it) so that /redirect_me is “301 Moved Permanently” to another page by modifying the virtual hosts configuration file: /etc/nginx/sites-enabled/default
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sudo sed -i.bak '/server_name _;/rewrite ^/redirect_me$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-enabled/default
+service nginx restart
