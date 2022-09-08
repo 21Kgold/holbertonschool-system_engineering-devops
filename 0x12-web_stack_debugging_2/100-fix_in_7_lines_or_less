@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Replace <root> user with <nginx> user while running nginx. 1) Kill web server current process 2) Replace listening port 3) update nginx.conf file permisions 4) update ownership of nginx.conf file permisions 5) Change user and restart web server as nginx
+# Replace <root> user with <nginx> user while running nginx
 sudo pkill apache2
 sed -i 's/80/8080/' /etc/nginx/sites-enabled/default
 chmod u+r /etc/nginx/nginx.conf
