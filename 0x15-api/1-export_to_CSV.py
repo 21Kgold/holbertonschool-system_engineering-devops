@@ -7,9 +7,9 @@ in the CSV format. Format must be:
 File name must be: USER_ID.csv
 """
 
+import csv
 import requests
 import sys
-import csv
 
 if __name__ == "__main__":
     URL = "https://jsonplaceholder.typicode.com/users/"
@@ -18,8 +18,8 @@ if __name__ == "__main__":
     r1 = requests.get(URL1)
     r2 = requests.get(URL2).json()
     username = r1.json().get("username")
-    new = [dict(zip(['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS',
-                    'TASK_TITLE'], [sys.argv[1], username,
+    new = [dict(zip(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS",
+                    "TASK_TITLE"], [sys.argv[1], username,
                     task_dictionary["completed"],
                     task_dictionary["title"]])) for task_dictionary in r2]
     filename = sys.argv[1] + ".csv"
