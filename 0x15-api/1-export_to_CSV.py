@@ -19,7 +19,7 @@ if __name__ == "__main__":
     r2 = requests.get(URL2).json()
     username = r1.json().get("username")
     new = [dict(zip(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS",
-                    "TASK_TITLE"], [sys.argv[1], username,
+                    "TASK_TITLE"], [int(sys.argv[1]), username,
                     task_dictionary["completed"],
                     task_dictionary["title"]])) for task_dictionary in r2]
     filename = sys.argv[1] + ".csv"
