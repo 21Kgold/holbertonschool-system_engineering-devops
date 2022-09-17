@@ -23,9 +23,8 @@ if __name__ == "__main__":
                     task_dictionary["completed"],
                     task_dictionary["title"]])) for task_dictionary in r2]
     filename = sys.argv[1] + ".csv"
-    data_file = open(filename, "w")
-    csv_writer = csv.writer(data_file, quoting=csv.QUOTE_ALL, quotechar='"',
-                            delimiter=',')
-    for task_dictionary in new:
-        csv_writer.writerow(task_dictionary.values())
-    data_file.close()
+    with open(filename, "w") as my_file:
+        csv_writer = csv.writer(my_file, quoting=csv.QUOTE_ALL, quotechar='"',
+                                lineterminator='\n')
+        for task_dictionary in new:
+            csv_writer.writerow(task_dictionary.values())
