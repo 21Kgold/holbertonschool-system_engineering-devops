@@ -17,13 +17,19 @@ if __name__ == "__main__":
     URL2 = URL + sys.argv[1] + "/todos"
     r1 = requests.get(URL1)
     r2 = requests.get(URL2).json()
-    user_name = r1.json().get("username")
-    new = [dict(zip(["id", "username", "completed",
-                    "title"], [int(sys.argv[1]), user_name,
-                    task_dictionary["completed"],
-                    task_dictionary["title"]])) for task_dictionary in r2]
+    name = r1.json().get("name")
+    total = len(r2)
+    done = 0
+    done_list = []
+    user = r1.json().get("username")
     filename = sys.argv[1] + ".csv"
     with open(filename, "w") as my_file:
-        csv_writer = csv.writer(my_file, quoting=csv.QUOTE_ALL, quotechar='"')
-        for task_dictionary in new:
-            csv_writer.writerow(task_dictionary.values())
+        csv_writer = csv.writer(my_file, quoting=csv.QUOTE_ALL, quotechar='"',
+                                lineterminator='\n')
+        for task_dictionary in r2:  # r2 is a list of dictionaries
+            if task_dictionary["completed"] is True:
+                done = done + 1
+                done_list += [task_dictionary["title"]]
+            row = [sys.argv[1], user, task_dictionary["completed"], \
+                  [task_dictionary["title"]]
+            csv_writer.writerow(row)
