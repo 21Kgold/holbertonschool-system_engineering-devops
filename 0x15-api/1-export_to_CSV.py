@@ -30,5 +30,5 @@ if __name__ == "__main__":
             if task_dictionary["completed"] is True:
                 done = done + 1
                 done_list += [task_dictionary["title"]]
-            row = [task_dictionary.get("completed"), user, task_dictionary.get("completed"), task_dictionary.get("title")]
+            row = [sys.argv[1], user, task_dictionary.get("completed"), task_dictionary.get("title")]
             csv_writer.writerow(row)
