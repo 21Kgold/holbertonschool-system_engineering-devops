@@ -30,5 +30,10 @@ if __name__ == "__main__":
             if task_dictionary["completed"] is True:
                 done = done + 1
                 done_list += [task_dictionary["title"]]
-            row = [sys.argv[1], user, task_dictionary["completed"], task_dictionary["title"]]
+            row = [sys.argv[1], user, task_dictionary["completed"],
+                   task_dictionary["title"]]
             csv_writer.writerow(row)
+    # first_line = "Employee " + name + " is done with tasks(" + str(done) + \
+    #             "/" + str(total) + "):"
+    # print(first_line, end="\n\t ")
+    # print("\n\t " .join(done_list))
