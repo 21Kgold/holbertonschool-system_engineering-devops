@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    Query the Reddit API,
+    Query the Reddit API, that
     parses the title of all hot articles,
     and prints a sorted count for given parameters
 """
