@@ -1,0 +1,2 @@
+Logs are very useful to monitor activities of any application apart from providing you with valuable information while you troubleshoot it. Like any other application, NGINX also records events like visitors to your site, issues it encountered and more to log files.
+By default, NGINX writes its events in two types of logs - the error log and the access log. In most of the popular Linux distro like Ubuntu, CentOS or Debian, both the access and error log can be found in /var/log/nginx
